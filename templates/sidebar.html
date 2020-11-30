@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block slidebar %}
+    {% for value in sidebar_v %}
+    <li>
+    <a href={{ sidebar_v[value] }} data-scroll><span class="fa fa-anchor solo"><h3>{{ value }}</h3></span></a>
+    </li>
+    {% endfor %}
+{% endblock %}

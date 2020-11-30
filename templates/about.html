@@ -1,0 +1,11 @@
+{% extends "sidebar.html" %}
+
+{% block content %} 
+
+<h1> I AM VERY COOL</h1>
+<br>
+{% for value in posts %}
+    <h4 style="display: inline">{{value}}</h4>--->{{posts[value]}}<br><br>
+{% endfor %}
+
+{% endblock %}

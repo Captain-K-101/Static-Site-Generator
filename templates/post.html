@@ -1,0 +1,12 @@
+{% extends "sidebar.html" %}
+
+
+{% block asdf %}{{posts.title}}{% endblock %}
+{% block content %}
+<p>
+    <img src="../{{ posts.img }}" alt="" width="200px" height="150px">
+    <small>{{posts.date}}</small>
+    {{posts.content}}
+</p>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic@6.5.0/picnic.min.css">
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+   <title>My Recipes</title>
+<style>
+
+</style>
+
+</head>
+<body class="container">
+
+<!-- =============================================================================================
+-->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <nav id="spy">
+            <ul class="sidebar-nav nav">
+                {% block slidebar %}
+
+                {% endblock %}
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <div class="content-header">
+            <h1 id="home">
+                <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+                    <i class="fa fa-bars"></i>
+                </a>
+                Sidebar Navigation Template
+            </h1>
+        </div>
+
+        <div class="page-content inset" data-spy="scroll" data-target="#spy">
+            <div id="main">
+              </div>
+              <div class="">
+                <h1>
+                    {% block asdf %} 
+                    {% endblock %}
+                </h1>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ============================================================================================= -->
+<script>
+    document.getElementById("mySidenav").style.width = "200px";
+</script>
+<script>
+
+</script>
+</body>
+</html>

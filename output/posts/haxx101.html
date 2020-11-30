@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic@6.5.0/picnic.min.css">
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+   <title>My Recipes</title>
+<style>
+
+</style>
+
+</head>
+<body class="container">
+
+<!-- =============================================================================================
+-->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <nav id="spy">
+            <ul class="sidebar-nav nav">
+                
+    
+    <li>
+    <a href="../../../../../../../../../../../../../home/nikhil/Desktop/c-ssg/output/index.html" data-scroll><span class="fa fa-anchor solo"><h3>Home</h3></span></a>
+    </li>
+    
+    <li>
+    <a href="../../../../../../../../../../home/nikhil/Desktop/c-ssg/output/about.html" data-scroll><span class="fa fa-anchor solo"><h3>About</h3></span></a>
+    </li>
+    
+    <li>
+    <a href=Cart.html data-scroll><span class="fa fa-anchor solo"><h3>Cart</h3></span></a>
+    </li>
+    
+    <li>
+    <a href=Test.html data-scroll><span class="fa fa-anchor solo"><h3>Test</h3></span></a>
+    </li>
+    
+
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <div class="content-header">
+            <h1 id="home">
+                <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+                    <i class="fa fa-bars"></i>
+                </a>
+                Sidebar Navigation Template
+            </h1>
+        </div>
+
+        <div class="page-content inset" data-spy="scroll" data-target="#spy">
+            <div id="main">
+              </div>
+              <div class="">
+                <h1>
+                    WRITUP FOR CTF CHALLENGE
+                </h1>
+            
+<p>
+    <img src="../img/ctf.jpeg" alt="" width="200px" height="150px">
+    <small></small>
+    <h1>Draw with us</h1>
+
+<p>Come draw with us!  </p>
+
+<p>http://167.172.165.153:60000/  </p>
+
+<p>Author: stackola</p>
+
+<p><strong>Hint!</strong>  Changing your color is the first step towards happiness.</p>
+
+<h2>Solution</h2>
+
+<p>We were first greeted with an screen with an pixelated drawing board and an login form 
+we can register with any name other than hacktm .
+looking at the given source file we can see that it is checking.</p>
+
+<p><code>u.username.toUpperCase() !== config.adminUsername.toUpperCase()</code>
+our inputted username in uppercase is not equal to 'HACKTM'.</p>
+
+<p>Also to get the ability to change color and rights it checks that 
+<code>u.username.toLowerCase() == config.adminUsername.toLowerCase()</code>.</p>
+
+<p>To bypass this we found and unicode character ( <code>K</code>) which when converted to uppercase stays the same as <code>K</code> but when converted to lowercase becomes <code>k</code> .</p>
+
+<p>hence now we are able to change our color and our rights (which basically are the stuff displayed on the api call to <code>/serverInfo</code></p>
+
+<p>next we need to send an request to /Updateuser with post parameter</p>
+
+<h5><code>{"color": ,"rights":}</code></h5>
+
+<p>if we send an request to the endpoint <code>/init</code> it sends an token with admin signature and a id calculated by 3 values n,p and .</p>
+
+<p><code>app.post("/init", (req, res) =&gt; {</code><br>
+<code>let { p = "0", q = "0", clearPIN } = req.body;</code><br>
+  <code>let target = md5(config.n.toString());</code><br>
+  <code>let pwHash = md5(</code><br>
+   <code>bigInt(String(p)).multiply(String(q)).toString());</code><br>
+  <code>if (pwHash == target &amp;&amp; clearPIN === _clearPIN) {</code><br>
+   <code>// Clear the board</code><br>
+<code>board = new Array(config.height)</code><br>
+    <code>.fill(0)</code><br>
+      <code>.map(() =&gt; new Array(config.width).fill(config.backgroundColor));</code><br>
+    <code>boardString = boardToStrings();</code><br></p>
+
+<p><code>io.emit("board", { board: boardString });</code><br>
+  <code>}</code><br>
+So we try to get the values of n to get the admin token id value to 0 to get the flag
+if we are able to set n as one of our rights we will be able to send and request to /init with the proper values and get the admin token
+but the problem here was that n p and port was blacklisted 
+hence to bypass this we send it as an array
+ie:
+<code>{"color": "0xDEDBEE","rights": [['n']]}</code></p>
+
+<p>As in javascript 
+<code>dict = {'key': 'value'}</code>
+<code>
+A['key'] ==&gt;'value'
+and also 
+A[['key']] ==&gt; 'value'
+</code>
+hence we can get the value for n 
+giving p the same values as n and q as 1 and make the admin token id equal to 0
+change our token to the newly acquired token and visit /flag we get the flag</p>
+
+</p>
+
+
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ============================================================================================= -->
+<script>
+    document.getElementById("mySidenav").style.width = "200px";
+</script>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% extends "sidebar.html" %}
+
+{% block asdf %} MY BLOGS {% endblock %}
+
+
+{% block content %}
+<div class="flex three demo">
+{% for post in posts %}
+    <div>
+      <article class="card">
+        <img src="{{ post.thumbnail }}">
+        <footer>
+          <h3><a href="posts/{{ post.slug }}.html" >{{post.title}}</a><h4><small >{{post.date}}</small></h4></h3>
+          <p>{{post.summary}}</p>
+          <br>
+          {% set list_of_tags = post.tags.split(",") %}
+          {% for tag in list_of_tags %}
+              <button class="shyButton mybutton">{{ tag }}</button>
+          {% endfor %}
+        </footer>
+      </article>
+    </div>
+{% endfor %} 
+</div>
+<!--
+<div>
+    <div class="flex three">
+        
+{% for post in posts %}
+<div>
+        <article class="card">
+            <header>
+                <img src="{{ post.thumbnail }}">
+
+            </header>
+        <footer>
+        <h2  style="display:inline">{{loop.index}}: <a href="posts/{{ post.slug }}.html" >{{post.title}}</a><h4><small >{{post.date}}</small></h4></h2>
+        <p>{{post.summary}}</p>
+        <br>
+    {% set list_of_tags = post.tags.split(",") %}
+    {% for tag in list_of_tags %}
+        <button class="shyButton mybutton">{{ tag }}</button>
+    {% endfor %}
+</footer>
+
+</article>
+{% endfor %}
+
+</div>
+</div>
+</div>
+-->
+{% endblock %}

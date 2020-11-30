@@ -19,3 +19,7 @@
 to run simply use 
 `python3 run.py`
 and all the files will be generated in output folder
+
+# REQUIREMENTS
+> markdown2 <br>
+> jinja2 <br>
